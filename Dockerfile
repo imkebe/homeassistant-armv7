@@ -14,7 +14,7 @@ SHELL ["/bin/sh", "-lc"]
 
 ARG PYTHON_VERSION=3.14.2
 ARG PYTHON_BUILD_JOBS=1
-ARG HA_VERSION=2026.7.1
+ARG HA_VERSION=2026.8.2
 
 ENV CARGO_BUILD_JOBS=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
@@ -115,16 +115,16 @@ RUN apk add --no-cache \
 RUN python3 -m pip install --no-cache-dir --no-compile \
       "pydantic-core==2.46.4" \
       "pydantic==2.13.4" \
-      "ical==13.2.2" \
-      "gcal-sync==8.0.0" \
+      "ical==14.1.0" \
+      "gcal-sync==9.1.0" \
       "oauth2client==4.1.3"
 
 RUN python3 -m pip install --no-cache-dir --no-compile \
       "pymicro-vad==1.0.1" \
       "pyspeex-noise==1.0.2" \
-      "hassil==3.8.0" \
-      "home-assistant-intents==2026.6.24" \
-      "habluetooth==6.26.2" \
+      "hassil==3.11.0" \
+      "home-assistant-intents==2026.7.30" \
+      "habluetooth==6.26.5" \
       "bluetooth-adapters==2.4.0" \
       "bleak==3.0.2" \
       "dbus-fast==5.0.22"
@@ -139,9 +139,9 @@ RUN apk add --no-cache \
       cargo && \
     python3 -m pip install --no-cache-dir --no-compile \
       "python-miio==0.5.12" \
-      "mutagen==1.47.0" \
+      "mutagen==1.48.1" \
       "HATasmota==0.10.1" \
-      "openai==2.21.0"
+      "openai==2.45.0"
 
 RUN python3 -m pip install --no-cache-dir --no-compile \
       "ha-ffmpeg==3.2.2"
@@ -155,7 +155,7 @@ RUN python3 -m pip install --no-cache-dir --no-compile \
       "colorlog==6.10.1"
 
 RUN python3 -m pip install --no-cache-dir --no-compile \
-      "home-assistant-frontend==20260624.4" \
+      "home-assistant-frontend==20260729.7" \
       "infrared-protocols==6.3.0" \
       "rf-protocols==4.3.0" \
       "jsonpath-python==1.1.6" \
@@ -178,16 +178,16 @@ RUN python3 -m pip install --no-cache-dir --no-compile \
       "wakeonlan==3.1.0"
 
 RUN python3 -m pip install --no-cache-dir --no-compile --no-binary=aioesphomeapi,bleak-esphome \
-      "aioesphomeapi==45.3.1" \
-      "bleak-esphome==3.9.4" \
-      "esphome-dashboard-api==1.3.0"
+      "aioesphomeapi==45.6.1" \
+      "bleak-esphome==3.9.7" \
+      "esphome-dashboard-api==1.4.0"
 
 RUN python3 -m pip install --no-cache-dir --no-compile --no-binary=cached-ipaddress \
       "aiodiscover==3.3.2" \
       "cached-ipaddress==1.1.2"
 
 RUN python3 -m pip install --no-cache-dir --no-compile \
-      "matter-python-client==0.7.1" \
+      "matter-python-client==1.3.0" \
       "matter-ble-proxy==0.7.1" \
       "aiodhcpwatcher==1.2.7"
 
@@ -197,11 +197,11 @@ RUN python3 -m pip install --no-cache-dir --no-compile \
       "ibeacon-ble==1.2.0" \
       "aiofiles==25.1.0"
 
-# Versions observed during Home Assistant 2026.7.1 startup on this config.
+# Versions observed during Home Assistant 2026.8.2 startup on this config.
 RUN python3 -m pip install --no-cache-dir --no-compile \
       "icmplib==3.0.4" \
       "wakeonlan==3.3.0" \
-      "ical==13.2.5"
+      "ical==14.1.0"
 
 RUN find /usr/local -depth \
       \( -type d \( -name test -o -name tests -o -name __pycache__ \) -o \
@@ -213,7 +213,7 @@ FROM ${BASE_IMAGE} AS runtime
 
 SHELL ["/bin/sh", "-lc"]
 
-ARG HA_VERSION=2026.7.1
+ARG HA_VERSION=2026.8.2
 
 ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     LANG=C.UTF-8 \
@@ -333,7 +333,7 @@ ENTRYPOINT ["/init"]
 
 FROM runtime AS full
 
-ARG HA_VERSION=2026.7.1
+ARG HA_VERSION=2026.8.2
 
 ENV CARGO_BUILD_JOBS=1
 

@@ -3,7 +3,7 @@ set -eu
 
 IMAGE_NAME="${IMAGE_NAME:-homeassistant-armv7-lean}"
 BASE_IMAGE="${BASE_IMAGE:-ghcr.io/home-assistant/armv7-base:3.22}"
-HA_VERSION="${HA_VERSION:-2026.7.1}"
+HA_VERSION="${HA_VERSION:-2026.8.2}"
 PYTHON_VERSION="${PYTHON_VERSION:-3.14.2}"
 PYTHON_BUILD_JOBS="${PYTHON_BUILD_JOBS:-1}"
 BUILD_TARGET="${BUILD_TARGET:-runtime}"
